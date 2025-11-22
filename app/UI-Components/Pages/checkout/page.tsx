@@ -53,7 +53,7 @@ export default function Checkout() {
 
       <div className="px-[6%] lg:px-[12%] py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
+
           {/* LEFT FORM */}
           <div className="lg:col-span-7 bg-white p-6 rounded-2xl shadow-lg border border-green-100">
             <h3 className="Unbounded text-2xl mb-4 text-[var(--prim-color)]">Contact Info</h3>
@@ -154,6 +154,7 @@ export default function Checkout() {
               <div className="space-y-4 max-h-72 overflow-y-auto">
                 {cartItems.map(item => {
                   const price = parseFloat(item.price.replace(/[^0-9.-]+/g, "")) || 0;
+
                   return (
                     <div key={item.Id} className="flex items-center gap-4 border-b pb-3">
                       <img src={item.image} className="w-20 h-20 rounded object-contain border" />
@@ -163,7 +164,9 @@ export default function Checkout() {
                         <p className="text-gray-500 text-sm">Qty: {item.qty}</p>
                       </div>
 
-                      <p className="Unbounded font-semibold">${(price * (item.qty ?? 1)).toFixed(2)}</p>
+                      <p className="Unbounded font-semibold">
+                        ${(price * (item.qty ?? 1)).toFixed(2)}
+                      </p>
                     </div>
                   );
                 })}
@@ -182,24 +185,30 @@ export default function Checkout() {
 
                 <div className="border-t pt-3 mt-3 flex justify-between text-xl font-bold text-[var(--prim-color)]">
                   <span>Total</span>
-                  <span className="Unbouded">${(totalPrice + parseFloat(estimatedTax)).toFixed(2)}</span>
+                  <span className="Unbounded">${finalTotal.toFixed(2)}</span>
                 </div>
-                <button className="w-full mt-3 mb-3 py-2 bg-green-600 cursor-pointer text-white rounded hover:bg-green-700 transition-all"
-                    onClick={() => handlePlaceOrder()}
-                    >
-                    Place Order
-                </button>
-                <Link href="/UI-Components/Pages/cart" 
-                className="w-full text-center block py-2 bg-gray-200 cursor-pointer rounded hover:bg-gray-400 transition-all"
+
+                <button
+                  className="w-full mt-3 mb-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-all"
+                  onClick={() => handlePlaceOrder()}
                 >
-                    Back to Cart
+                  Place Order
+                </button>
+
+                <Link
+                  href="/UI-Components/Pages/cart"
+                  className="w-full text-center block py-2 bg-gray-200 rounded hover:bg-gray-400 transition-all"
+                >
+                  Back to Cart
                 </Link>
-                </div>
+              </div>
+
             </div>
-            </div>
+          </div>
+
         </div>
-        </div>
+      </div>
 
     </div>
-    );
+  );
 }

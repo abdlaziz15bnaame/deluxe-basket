@@ -5,28 +5,11 @@ import { useState } from "react";
 import BlogDetails from "../blogDetails/page";
 import Link from "next/link";
 
-const categorise = [
-  "Fruits & Vegetables",
-  "Dairy & Bakery",
-  "Snacks & Beverages",
-  "Staples",
-  "Frozen & Packaged Food",
-  "Personal Care",
-  "Household Essentials",
-];
-
 const Blogs = () => {
   const [selectedBlog, setSelectedBlog] = useState<number | null>(null);
 
-  // عرض التفاصيل إذا تم اختيار Blog
-  if (selectedBlog !== null) {
-    return (
-      <BlogDetails
-        blog={blogData[selectedBlog]}
-        goBaK={() => setSelectedBlog(null)}
-      />
-    );
-  }
+  // Show Blog Details if selected
+  
 
   return (
     <>
@@ -35,10 +18,7 @@ const Blogs = () => {
         <div className="flex items-center justify-between">
           <h2 className="Unbounded text-3xl">Blog</h2>
           <div className="flex text-xl">
-            <Link
-              href="/"
-              className="Unbounded hover:text-green-600 duration-200"
-            >
+            <Link href="/" className="Unbounded hover:text-green-600 duration-200">
               Home :
             </Link>
             <span className="Unbounded text-[var(--prim-color)]">&nbsp;Blog</span>
@@ -109,12 +89,10 @@ const Blogs = () => {
                     className="flex justify-between items-center mb-5 gap-5 cursor-pointer"
                     onClick={() => setSelectedBlog(index)}
                   >
-                    {/* Image */}
                     <div className="w-1/2">
                       <img src={blog.image} alt={blog.title} />
                     </div>
 
-                    {/* Content */}
                     <div className="w-1/2">
                       <div className="blog-content">
                         <h2 className="Unbounded hover:text-[var(--prim-color)] hover:underline">
