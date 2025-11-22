@@ -118,7 +118,7 @@ const Footer = () => {
         </div>
         <div className="botton-footer px-[8%] lg:px-[12%] py-5 bg-[var(--prim-light)]">
             <div className="flex flex-col md:flex-row justify-between items-center gap-5">
-                <p className="text-lg">©2025. All Rights Reserved By <a href="https://uicode.in/" className="font-semibold">Uicode</a></p>
+                <p className="text-lg">©2025. All Rights Reserved By <a href="https://uicode.in/" className="font-semibold">BEN-AAME</a></p>
                 <Image src={payment} alt="Payment"/>
 
             </div>
